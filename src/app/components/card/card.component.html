@@ -1,0 +1,55 @@
+<div class="card">
+    <h1 class="text-dark card-title text-center text-uppercase ">Cards Manager</h1>
+    <hr class="border border-dark border-2 opacity-75">
+      <div class="card-body overflow-auto">
+        <div class="row ">
+          <div class="col-6 ">
+            <div class="card">
+              <div class=" card m-1" *ngFor="let card of cards">
+               <div class="row p-2">
+                <div (click)="populateForm(card)" class="col-10 d-flex justify-content-around">
+                  <span>{{card.cardholderName}}</span>
+                  <span>{{card.cardNumber}}</span>
+                </div>
+                <div class="col-2">
+                  <a class="btn btn-danger btn-block " (click)="deleteCard(card.id)"><i class="fa-solid fa-trash-can"></i></a>
+                </div>
+               </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card card-body">
+              <form>
+                <div class="mb-3">
+                  <label for="cardholderName" class="form-label">Card Holder Name </label>
+                  <input type="text" class="form-control" name="cardholderName" id="cardholderName" aria-describedby="cardholderName" [(ngModel)]="card.cardholderName">
+                </div>
+                <div class="mb-3">
+                  <label for="cardNumber" class="form-label">Card Number</label>
+                  <input type="text" class="form-control" name="cardNumber" id="cardNumber" aria-describedby="cardNumber" [(ngModel)]="card.cardNumber">
+                </div>
+                <div class="mb-3 row">
+                  <div class="col-4">
+                    <label for="cvc" class="form-label">CVC </label>
+                  <input type="text" class="form-control" name="cvc" id="cvc" aria-describedby="cvc" [(ngModel)]="card.cvc">
+                  </div>
+                  <div class="col-4">
+                    <label for="expiryMonth" class="form-label">Expiry Month </label>
+                  <input type="text" class="form-control" name="expiryMonth" id="expiryMonth" aria-describedby="expiryMonth"[(ngModel)]="card.expiryMonth">
+                  </div>
+                  <div class="col-4">
+                    <label for="expiryYear" class="form-label">Expiry Year</label>
+                  <input type="text" class="form-control" name="expiryYear" id="expiryYear" aria-describedby="expiryYear"  [(ngModel)]="card.expiryYear">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <button class="btn btn-success  btn-block" (click)="onSubmit()">Save</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
